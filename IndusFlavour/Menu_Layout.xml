@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+    <layout name="menu" class="Menu">
+        <!-- Menu: Attributes & elements -->
+        <attribute name="id">
+            <unique />
+            <content type="string">
+                <getter>identifier</getter>
+                <setter>setIdentifier:</setter>
+            </content>
+        </attribute><!-- type -->
+        <attribute name="merchantId">
+            <unique />
+            <required />
+            <content type="string">
+                <getter>merchantId</getter>
+                <setter>setMerchantId:</setter>
+            </content>
+        </attribute><!-- type -->
+        <element name="merchantName">
+            <unique />
+            <required />
+            <content type="string">
+                <getter>merchantName</getter>
+                <setter>setMerchantName:</setter>
+            </content>
+        </element>
+        <attribute name="name">
+            <unique />
+            <required />
+            <content type="string">
+                <getter>name</getter>
+                <setter>setName:</setter>
+            </content>
+        </attribute>
+        <element name="exportFormat">
+            <unique />
+            <required />
+            <content type="string">
+                <getter>exportFormat</getter>
+                <setter>setExportFormat:</setter>
+            </content>
+        </element>
+        <element name="version">
+            <unique />
+            <required />
+            <content type="string">
+                <getter>version</getter>
+                <setter>setVersion:</setter>
+            </content>
+        </element>
+        <!-- section: content -->
+        <element name="section">
+            <optional />
+            <content type="custom">
+                <getter>list</getter>
+                <setter>setList:</setter>
+                <class>Section</class>
+            </content>
+            <attribute name="id">
+                <unique />
+                <content type="string">
+                    <getter>identifier</getter>
+                    <setter>setIdentifier:</setter>
+                </content>
+            </attribute><!-- type -->
+            
+            <!-- section: Attributes -->
+            <attribute name="name">
+                <unique />
+                <required />
+                <content type="string">
+                    <getter>name</getter>
+                    <setter>setName:</setter>
+                </content>
+            </attribute><!-- type -->
+            
+            <!-- section: elements -->
+            <element name="category">
+                <required />
+                <content type="custom">
+                    <getter>list</getter>
+                    <setter>setList:</setter>
+                    <class>Categorie</class>
+                </content>
+                <attribute name="id">
+                    <unique />
+                    <content type="string">
+                        <getter>identifier</getter>
+                        <setter>setIdentifier:</setter>
+                    </content>
+                </attribute><!-- type -->
+                <!-- category: Attributes -->
+                <attribute name="name">
+                    <unique />
+                    <required />
+                    <content type="string">
+                        <getter>name</getter>
+                        <setter>setName:</setter>
+                    </content>
+                </attribute><!-- type -->
+                
+                <element name="description">
+                    <unique />
+                    <optional />
+                    <content type="string">
+                        <getter>catDescription</getter>
+                        <setter>setCatDescription:</setter>
+                    </content>
+                </element>
+                
+                <!-- category: elements -->
+                <element name="subcategory">
+                    <optional />
+                    <content type="custom">
+                        <getter>list</getter>
+                        <setter>setList:</setter>
+                        <class>Subcategory</class>
+                    </content>
+                    <attribute name="id">
+                        <unique />
+                        <content type="string">
+                            <getter>identifier</getter>
+                            <setter>setIdentifier:</setter>
+                        </content>
+                    </attribute><!-- type -->
+                    <!-- subcategory: Attributes -->
+                    <attribute name="name">
+                        <optional />
+                        <content type="string">
+                            <getter>name</getter>
+                            <setter>setName:</setter>
+                        </content>
+                    </attribute><!-- type -->
+                    
+                    <element name="item"> <!-- Item -->
+                        <required />
+                        <content type="custom">
+                            <getter>list</getter>
+                            <setter>setList:</setter>
+                            <class>Item</class>
+                        </content>
+                        
+                        <!-- Item: Attributes-->
+                        <attribute name="identifier">
+                            <unique />
+                            <required />
+                            <content type="string">
+                                <getter>identifier</getter>
+                                <setter>setIdentifier:</setter>
+                            </content>
+                        </attribute>
+                        
+                        <!-- Item: Elements-->
+                        <element name="name">
+                            <required />
+                            <unique />
+                            <content type="string">
+                                <getter>name</getter>
+                                <setter>setName:</setter>
+                            </content>
+                        </element>
+                        
+                        <element name="type">
+                            <unique />
+                            <optional />
+                            <content type="string">
+                                <getter>type</getter>
+                                <setter>setType:</setter>
+                            </content>
+                        </element>
+                        
+                        <element name="price">
+                            <unique />
+                            <optional />
+                            <content type="string">
+                                <getter>price</getter>
+                                <setter>setPrice:</setter>
+                            </content>
+                        </element>
+                      
+                    </element><!-- Item -->
+                </element><!-- Subcategory -->
+            </element><!-- Categorie -->
+        </element><!-- Section -->
+    </layout><!-- Menu -->
+    
+</document>

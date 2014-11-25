@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+    <layout name="feedback" class="Feedback">
+        
+        <element name="category">
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>category</getter>
+                <setter>setCategory:</setter>
+            </content>
+        </element>
+        
+        <element name="merchant">
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>merchant</getter>
+                <setter>setMerchant:</setter>
+            </content>
+        </element>
+        
+        <element name="name">
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>name</getter>
+                <setter>setName:</setter>
+            </content>
+        </element>
+        
+        <element name="register">
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>registerMe</getter>
+                <setter>setRegisterme:</setter>
+            </content>
+        </element>
+        
+        <element name="subscribe">
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>subscribe</getter>
+                <setter>setSubscribe:</setter>
+            </content>
+        </element>
+
+        <element name="customer"> <!-- Customer -->
+            <unique />
+            <optional />
+            <content type="custom">
+                <getter>customer</getter>
+                <setter>setCustomer:</setter>
+                <class>UserProfile</class>
+            </content>
+            
+            <attribute name="id"><!-- attribute start -->
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>id</getter>
+                    <setter>setId:</setter>
+                </content>
+            </attribute><!-- attribute Closed -->
+            
+            <element name="name">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>name</getter>
+                    <setter>setName:</setter>
+                </content>
+            </element>
+            <element name="email">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>email</getter>
+                    <setter>setEmail:</setter>
+                </content>
+            </element>
+            
+            <element name="phone">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>phone</getter>
+                    <setter>setPhone:</setter>
+                </content>
+            </element>
+            
+            <element name="city">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>city</getter>
+                    <setter>setCity:</setter>
+                </content>
+            </element>
+            
+            <element name="state">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>state</getter>
+                    <setter>setState:</setter>
+                </content>
+            </element>
+            
+            <element name="gender">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>gender</getter>
+                    <setter>setGender:</setter>
+                </content>
+            </element>
+            <element name="dateOfBirth">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>dateOfBirth</getter>
+                    <setter>setDateOfBirth:</setter>
+                </content>
+            </element>
+            
+            <element name="addressLine">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>addressLine</getter>
+                    <setter>setAddressLine:</setter>
+                </content>
+            </element>
+            <element name="anniversary">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>anniversary</getter>
+                    <setter>setAnniversary:</setter>
+                </content>
+            </element>
+            <element name="registrar">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>registrar</getter>
+                    <setter>setRegistrar:</setter>
+                </content>
+            </element>
+            
+            <element name="lastCheckedIn">
+                <optional />
+                <content type="string">
+                    <getter>lastCheckedIn</getter>
+                    <setter>setLastCheckedIn:</setter>
+                </content>
+            </element>
+            
+            <element name="lastCheckInTime">
+                <optional />
+                <content type="string">
+                    <getter>lastCheckInTime</getter>
+                    <setter>setLastCheckInTime:</setter>
+                </content>
+            </element>
+            
+            <element name="images">  <!-- Image Element Start-->
+                <unique />
+                <optional />
+                <content type="custom">
+                    <getter>images</getter>
+                    <setter>setImages:</setter>
+                    <class>Image</class>
+                </content>
+                
+                <!-- Image: elements -->
+                <element name="name">
+                    <unique />
+                    <optional />
+                    <content type="string">
+                        <getter>name</getter>
+                        <setter>setName:</setter>
+                    </content>
+                </element>
+                <element name="originalLocation">
+                    <unique />
+                    <optional />
+                    <content type="string">
+                        <getter>originalLocation</getter>
+                        <setter>setOriginalLocation:</setter>
+                    </content>
+                </element>
+            </element>  <!-- Image Element Closed-->
+            
+            <element name="referencedFrom">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>referencedFrom</getter>
+                    <setter>setReferencedFrom:</setter>
+                </content>
+            </element>
+            
+        </element><!-- Customer End-->
+        
+        <element name="response">
+            <optional />
+            <content type="custom">
+                <getter>response</getter>
+                <setter>setResponse:</setter>
+                <class>Response</class>
+            </content>
+            
+            <element name="question">
+                <unique />
+                <optional />
+                <content type="custom">
+                    <getter>question</getter>
+                    <setter>setQuestion:</setter>
+                    <class>Question</class>
+                </content>
+                
+                <attribute name="category"><!-- attribute start -->
+                    <unique />
+                    <optional />
+                    <content type="string">
+                        <getter>category</getter>
+                        <setter>setCategory:</setter>
+                    </content>
+                </attribute><!-- attribute Closed -->
+                
+                <attribute name="name"><!-- attribute start -->
+                    <unique />
+                    <optional />
+                    <content type="string">
+                        <getter>name</getter>
+                        <setter>setName:</setter>
+                    </content>
+                </attribute><!-- attribute Closed -->
+                
+                <element name="text">
+                    <unique />
+                    <optional />
+                    <content type="string">
+                        <getter>text</getter>
+                        <setter>setText:</setter>
+                    </content>
+                </element>
+                
+            </element>
+            
+            <element name="responseText">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>responseText</getter>
+                    <setter>setResponseText:</setter>
+                </content>
+            </element>
+            
+        </element>
+
+        
+               
+    </layout><!-- Access -->
+</document>

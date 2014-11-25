@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+    <layout name="order" class="Order">
+        <attribute name="id"> <!--Order Attribute Start -->
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>identifier</getter>
+                <setter>setIdentifier:</setter>
+            </content>
+        </attribute> <!--Order Attribute End -->
+        <element name="date">
+            <unique />
+            <required />
+            <content type="string">
+                <getter>date</getter>
+                <setter>setDate:</setter>
+            </content>
+        </element>
+        <element name="merchant">
+            <unique />
+            <required />
+            <content type="string">
+                <getter>merchant</getter>
+                <setter>setMerchant:</setter>
+            </content>
+        </element> 
+        <element name="orderNumber">
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>orderNumber</getter>
+                <setter>setOrderNumber:</setter>
+            </content>
+        </element>
+        <element name="servingEmployeeCode">
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>servingEmployeeCode</getter>
+                <setter>setServingEmployeeCode:</setter>
+            </content>
+        </element>
+        <element name="servingEmployeeName">
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>servingEmployeeName</getter>
+                <setter>setServingEmployeeName:</setter>
+            </content>
+        </element>
+        <element name="customer">
+            <unique/>
+            <optional/>
+            <content type="string">
+                <getter>customer</getter>
+                <setter>setCustomer:</setter>
+            </content>
+        </element>
+        <element name="customerId">
+            <unique/>
+            <optional/>
+            <content type="string">
+                <getter>customerId</getter>
+                <setter>setCustomerId:</setter>
+            </content>
+        </element>
+        <element name="tableName">
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>tableName</getter>
+                <setter>setTableName:</setter>
+            </content>
+        </element>
+        <element name="deviceUid">
+            <unique />
+            <required />
+            <content type="string">
+                <getter>deviceUid</getter>
+                <setter>setDeviceUid:</setter>
+            </content>
+        </element>
+        <element name="guests">
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>guests</getter>
+                <setter>setGuests:</setter>
+            </content>
+        </element>
+        <element name="initiated">
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>initiated</getter>
+                <setter>setInitiated:</setter>
+            </content>
+        </element>
+        <element name="orderStatus">
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>orderStatus</getter>
+                <setter>setOrderStatus:</setter>
+            </content>
+        </element>
+        <element name="billAmount">
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>billAmount</getter>
+                <setter>setBillAmount:</setter>
+            </content>
+        </element>
+        <element name="suborder"><!-- SUB ORDER ELEMENTS START-->
+            <optional />
+            <content type="custom">
+                <getter>suborder</getter>
+                <setter>setSuborder:</setter>
+                <class>SubOrder</class>
+            </content>
+            <attribute name="date"><!-- SUB ORDER ATTRIBUTES START-->
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>date</getter>
+                    <setter>setDate:</setter>
+                </content>
+            </attribute>
+            <attribute name="tableNumber">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>tableNumber</getter>
+                    <setter>setTableNumber:</setter>
+                </content>
+            </attribute>
+            <attribute name="time">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>time</getter>
+                    <setter>setTime:</setter>
+                </content>
+            </attribute><!-- SUB ORDER ATTRIBUTES END-->
+            <element name="deviceUid">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>deviceUid</getter>
+                    <setter>setDeviceUid:</setter>
+                </content>
+            </element>
+            <element name="item">   <!-- ORDERED ITEM ELEMENTS START-->
+                <optional />
+                <content type="custom">
+                    <getter>item</getter>
+                    <setter>setItem:</setter>
+                    <class>OrderItem</class>
+                </content>
+                <element name="orderSequence">
+                    <unique />
+                    <optional />
+                    <content type="string">
+                        <getter>orderSequence</getter>
+                        <setter>setOrderSequence:</setter>
+                    </content>
+                </element>
+                <element name="menuItemId">
+                    <unique />
+                    <required />
+                    <content type="string">
+                        <getter>menuItemId</getter>
+                        <setter>setMenuItemId:</setter>
+                    </content>
+                </element>
+                <element name="name">
+                    <unique />
+                    <optional />
+                    <content type="string">
+                        <getter>name</getter>
+                        <setter>setName:</setter>
+                    </content>
+                </element>
+                <element name="categoryName">
+                    <unique />
+                    <optional />
+                    <content type="string">
+                        <getter>categoryName</getter>
+                        <setter>setCategoryName:</setter>
+                    </content>
+                </element>
+                <element name="quantity">
+                    <unique />
+                    <required />
+                    <content type="string">
+                        <getter>quantity</getter>
+                        <setter>setQuantity:</setter>
+                    </content>
+                </element>
+                <element name="status">
+                    <unique />
+                    <optional />
+                    <content type="string">
+                        <getter>status</getter>
+                        <setter>setStatus:</setter>
+                    </content>
+                </element>
+                <element name="price">
+                    <unique />
+                    <optional />
+                    <content type="string">
+                        <getter>price</getter>
+                        <setter>setPrice:</setter>
+                    </content>
+                </element>
+            </element><!-- ORDERED ITEM ELEMENTS END-->
+        </element><!-- SUB ORDER ELEMENTS END-->
+        <element name="deliveryAddress"><!-- ADDRESS ELEMENTS START-->
+            <optional />
+            <content type="custom">
+                <getter>deliveryAddress</getter>
+                <setter>setDeliveryAddress:</setter>
+                <class>Address</class>
+            </content>
+            <element name="city">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>city</getter>
+                    <setter>setCity:</setter>
+                </content>
+            </element>
+            <element name="zip">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>zip</getter>
+                    <setter>setZip:</setter>
+                </content>
+            </element>
+            <element name="state">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>state</getter>
+                    <setter>setState:</setter>
+                </content>
+            </element>
+            <element name="addressLine">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>addressLine</getter>
+                    <setter>setAddressLine:</setter>
+                </content>
+            </element>
+            <element name="contactNumber">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>contactNumber</getter>
+                    <setter>setContactNumber:</setter>
+                </content>
+            </element><!-- ADDRESS ELEMENTS END-->
+        </element>
+        <element name="item">   <!-- ORDERED ITEM ELEMENTS START-->
+            <optional />
+            <content type="custom">
+                <getter>item</getter>
+                <setter>setItem:</setter>
+                <class>OrderItem</class>
+            </content>
+            <element name="orderSequence">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>orderSequence</getter>
+                    <setter>setOrderSequence:</setter>
+                </content>
+            </element>
+            <element name="menuItemId">
+                <unique />
+                <required />
+                <content type="string">
+                    <getter>menuItemId</getter>
+                    <setter>setMenuItemId:</setter>
+                </content>
+            </element>
+            <element name="name">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>name</getter>
+                    <setter>setName:</setter>
+                </content>
+            </element>
+            <element name="quantity">
+                <unique />
+                <required />
+                <content type="string">
+                    <getter>quantity</getter>
+                    <setter>setQuantity:</setter>
+                </content>
+            </element>
+            <element name="status">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>status</getter>
+                    <setter>setStatus:</setter>
+                </content>
+            </element>
+            <element name="price">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>price</getter>
+                    <setter>setPrice:</setter>
+                </content>
+            </element>
+        </element><!-- ORDERED ITEM ELEMENTS END-->
+    </layout><!-- Result -->
+</document>
