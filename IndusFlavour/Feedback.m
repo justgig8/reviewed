@@ -15,9 +15,11 @@ merchant,
 name,
 response,
 customer,
-review,
 registerMe,
 subscribe;
+
+@synthesize orderId;
+@synthesize review;
 
 -(NSString *)description {
     

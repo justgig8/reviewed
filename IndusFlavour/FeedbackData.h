@@ -31,11 +31,11 @@ extern NSString *kQuestionCategoryService;
 
 +(FeedbackData*)sharedFeedbackData;
 -(Feedback*)getCurrentFeedback;
--(void)setFeedbackCustomer:(UserProfile *)customer;
 
--(Review *)addReviewWithType:(NSString *)reviewType andComment:(NSString *)comment ;
+-(void)addReviewWithType:(NSString *)reviewType andComment:(NSString *)comment ;
 -(Response *)addResponseText:(NSString *)resText questionName:(NSString *)name questionText:(NSString *)questionText andCategory:(NSString *)categoryText;
 
 +(void) reset;
+
 
 @end

@@ -14,12 +14,13 @@
 
 @property(nonatomic,strong)NSString *category;
 @property(nonatomic,strong)NSString *merchant;
+@property(nonatomic,strong)NSString *orderId;
 @property(nonatomic,strong)NSString *name;
 
 @property(nonatomic,strong)NSString *registerMe;
 @property(nonatomic,strong)NSString *subscribe;
 
-@property(nonatomic,strong)NSMutableArray *response;
-@property(nonatomic,strong)UserProfile *customer;
-@property(nonatomic,strong)NSMutableArray *review;
+@property(nonatomic,strong) NSMutableArray *response;
+@property(nonatomic,strong) UserProfile *customer;
+@property(nonatomic,strong) NSMutableArray *review;
 @end

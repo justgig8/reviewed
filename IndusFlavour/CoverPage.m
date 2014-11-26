@@ -72,7 +72,7 @@
     swiper.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:swiper];
     
-  	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(test) name:@"DATA RECEIVED" object:nil];
     [self getListItem];
 }
@@ -87,12 +87,11 @@
     if (txtField.text.length>0) {
         
         NetworkResponse *response = nil;
-        response = [AdminDataManager placePadOnTable:@"Indus Flavour" table:txtField.text];
+        response = [AdminDataManager placePadOnTable:[Initializer merchantName] table:txtField.text];
         Order *order = [[Order alloc] init];
-        NSLog(@"getOrderedItem -> response.responseObject : %@",response.responseObject);
         order = response.responseObject;
-        UserProfile *profile = [[UserProfile alloc] init];
-        profile.name = order.customer;
+        NSLog(@"order received: %@", order);
+        
         NSMutableArray *items = [[NSMutableArray alloc] init];
         if (order) {
             for (SubOrder *each in order.suborder) {
@@ -104,9 +103,20 @@
                         item.identifier = eachItem.menuItemId;
                         [items addObject:item];
                     }
-                 }
+                }
             }
+            
+            UserProfile *profile = [[UserProfile alloc] init];
+            profile.identifier = @"0";
+            profile.name = order.customer;
+            profile.phone = order.customerId;
+            profile.userId = order.customerId;
+            
             [[FeedbackData sharedFeedbackData] setQuestionList:items];
+            [[FeedbackData sharedFeedbackData] getCurrentFeedback].orderId = order.identifier;
+            [[FeedbackData sharedFeedbackData] getCurrentFeedback].customer = profile;
+            [[FeedbackData sharedFeedbackData] getCurrentFeedback].merchant = [Initializer merchantName];
+            
             NSLog(@"array%@",[[FeedbackData sharedFeedbackData] questionList]);
         }else{
             [self getmerchantMenu];
@@ -139,19 +149,18 @@
                 for (Subcategory *subCat in cat.list) {
                     [categoryList addObject:subCat.name];
                 }
-            
-               }
+                
+            }
         }
     }
-
+    
 }
 
--(void)getmerchantMenu{
-    NSLog(@"Merchant Name :%@",[Initializer merchantName]);
+-(void) getmerchantMenu{
     Menu *menu =  [MenuHandler getMenu:[Initializer merchantName] andIsUpdated:YES];
-       if(menu){
+    if(menu){
         [MemoryData setCurrentMenu:menu];
-        }
+    }
 }
 
 -(IBAction)setTableNumaber:(id)sender
@@ -160,14 +169,14 @@
         txtfieldView.frame = CGRectMake(567, 15, 65, 66);
     }];
     if (!isVisible){
-       
+        
         [self showPicker:sender];
     }
     else{
         [self hidePicker];
         [self getOrderedItem];
     }
-
+    
 }
 
 -(void)showPicker:(UIButton *)sender
@@ -176,7 +185,7 @@
     [UIView animateWithDuration:.3 animations:^(void){
         [self.view bringSubviewToFront:picker];
         CGRect pickerRct = picker.frame;
-         pickerRct.origin.y -= 216;
+        pickerRct.origin.y -= 216;
         [picker setFrame:pickerRct];
     }completion:^(BOOL finished){
         [picker selectRow:0 inComponent:0 animated:YES];
@@ -210,7 +219,6 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     return [pickrArray objectAtIndex:row];
-    
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{

@@ -41,8 +41,6 @@
 
 -(void)sliderViewDidSlid:(SlidingView *)slidingView andIndex:(NSString *)text{
     
-    NSLog(@"Table cell self.delegate %@",self.delegate);
-    
     NSString *questionCat = nil;
     switch (slidingView.tag) {
             
@@ -57,7 +55,7 @@
     }
     NSString *ratingText = text;//[self findRatingText:text];
     if ([self.delegate respondsToSelector:@selector(feedbackTableCell:addFeedBackCat:reponseText:)]) {
-        [self.delegate  feedbackTableCell:self addFeedBackCat:questionCat reponseText:ratingText];
+        [self.delegate feedbackTableCell:self addFeedBackCat:questionCat reponseText:ratingText];
     }
 }
 

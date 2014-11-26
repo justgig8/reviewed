@@ -134,7 +134,6 @@
 
 -(BOOL)createRequestUrl:(NSString *)urlString  object:(id)object responseType:(id)resType callBackController:(id)target  requestId:(NSString *)requestKey header:(NSMutableDictionary *)header{
     
-    self.isRequestSend = YES;
     self.responseType = resType;
     if (header == nil) {
         header = [NetworkResourcer getHeader];

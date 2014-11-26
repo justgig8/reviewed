@@ -11,12 +11,45 @@
             </content>
         </element>
         
+        <element name="review">
+            <optional />
+            <content type="custom">
+                <getter>review</getter>
+                <setter>setReview:</setter>
+            </content>
+            <attribute name="type">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>type</getter>
+                    <setter>setType:</setter>
+                </content>
+            </attribute>
+            <element name="comment">
+                <unique />
+                <optional />
+                <content type="string">
+                    <getter>comment</getter>
+                    <setter>setComment:</setter>
+                </content>
+            </element>
+        </element>
+        
         <element name="merchant">
             <unique />
             <optional />
             <content type="string">
                 <getter>merchant</getter>
                 <setter>setMerchant:</setter>
+            </content>
+        </element>
+        
+        <element name="orderId">
+            <unique />
+            <optional />
+            <content type="string">
+                <getter>orderId</getter>
+                <setter>setOrderId:</setter>
             </content>
         </element>
         
@@ -60,8 +93,8 @@
                 <unique />
                 <optional />
                 <content type="string">
-                    <getter>id</getter>
-                    <setter>setId:</setter>
+                    <getter>identifier</getter>
+                    <setter>setIdentifier:</setter>
                 </content>
             </attribute><!-- attribute Closed -->
             

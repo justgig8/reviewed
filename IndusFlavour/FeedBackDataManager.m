@@ -12,9 +12,8 @@
 
 @implementation FeedBackDataManager
 
-@synthesize customer,
-merchant,
-category;
+@synthesize customer;
+@synthesize merchant;
 
 
 -(id)initWithDelegate:(id)delegates  {
@@ -36,8 +35,6 @@ category;
     self.networkResourcer = [[NetworkResourcer alloc] init];
     BOOL isAnyDelay = [self.networkResourcer createRequestUrl:url object:object responseType:self.responseType callBackController:(id)self requestId:self.requestKey header:nil];
     
-    
-    //Add this for adding Indicators if required ------
     return isAnyDelay;
 }
 

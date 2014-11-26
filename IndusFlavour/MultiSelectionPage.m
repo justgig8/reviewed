@@ -15,7 +15,7 @@
 #import "Initializer.h"
 
 @interface MultiSelectionPage(){
- 
+    
     NSArray *array;
     NSMutableArray *buttons;
     NSMutableArray *answers;
@@ -60,7 +60,7 @@
 -(void) viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
-
+    
     UIButton *button;
     for (NSString *tag in array) {
         button = (UIButton *)[self.view viewWithTag:[tag intValue]];
@@ -81,48 +81,46 @@
             value = 2;
         }
         
-        NSLog(@"value :%d",value);
-        
         UIButton *btn;
         switch (value) {
             case 0:
                 btn = (UIButton*)[self.view viewWithTag:100+i];
-                 btn.selected = NO;
-            [answers removeObject: [NSString stringWithFormat:@"%d",btn.tag]];
-            break;
+                btn.selected = NO;
+                [answers removeObject: [NSString stringWithFormat:@"%d",btn.tag]];
+                break;
             case 1:
-               btn = (UIButton*)[self.view viewWithTag:200+i];
-                 btn.selected = NO;
+                btn = (UIButton*)[self.view viewWithTag:200+i];
+                btn.selected = NO;
                 [answers removeObject: [NSString stringWithFormat:@"%d",btn.tag]];
                 break;
             case 2:
                 btn = (UIButton*)[self.view viewWithTag:300+i];
-                 btn.selected = NO;
+                btn.selected = NO;
                 [answers removeObject: [NSString stringWithFormat:@"%d",btn.tag]];
                 break;
-            }
+        }
     }
     
-        button.selected=YES;
-        int tag = button.tag;
-        NSLog(@"clicked button for tag: %d", tag);
-        [answers addObject: [NSString stringWithFormat:@"%d", tag]];
-        if (tag%100==0) {
-            button = (UIButton *)([self.view viewWithTag:tag+1]);
-           // button.selected=NO;
-            button = (UIButton *)([self.view viewWithTag:tag+2]);
-            button.selected=NO;
-        }else if (tag%100==1) {
-            button = (UIButton *)([self.view viewWithTag:tag-1]);
-            //button.selected=NO;
-            button = (UIButton *)([self.view viewWithTag:tag+1]);
-            button.selected=NO;
-        }else if (tag%100==2) {
-            button = (UIButton *)([self.view viewWithTag:tag-2]);
-           // button.selected=NO;
-            button = (UIButton *)([self.view viewWithTag:tag-1]);
-            button.selected=NO;
-        }
+    button.selected=YES;
+    int tag = button.tag;
+    NSLog(@"clicked button for tag: %d", tag);
+    [answers addObject: [NSString stringWithFormat:@"%d", tag]];
+    if (tag%100==0) {
+        button = (UIButton *)([self.view viewWithTag:tag+1]);
+        // button.selected=NO;
+        button = (UIButton *)([self.view viewWithTag:tag+2]);
+        button.selected=NO;
+    }else if (tag%100==1) {
+        button = (UIButton *)([self.view viewWithTag:tag-1]);
+        //button.selected=NO;
+        button = (UIButton *)([self.view viewWithTag:tag+1]);
+        button.selected=NO;
+    }else if (tag%100==2) {
+        button = (UIButton *)([self.view viewWithTag:tag-2]);
+        // button.selected=NO;
+        button = (UIButton *)([self.view viewWithTag:tag-1]);
+        button.selected=NO;
+    }
 }
 
 
@@ -133,7 +131,7 @@
 
 -(void) resign{
     
-     [textView resignFirstResponder];
+    [textView resignFirstResponder];
 }
 
 -(IBAction)next:(id)sender
@@ -147,11 +145,11 @@
     if (code==0) {
         
         [self setAnswers];
-
+        
         [self submit];
         
-//        UserPage *page = [[UserPage alloc] initWithNibName:@"UserPage" bundle:nil];
-//        [ViewUtils forwardFrom:self to:page];
+        //                UserPage *page = [[UserPage alloc] initWithNibName:@"UserPage" bundle:nil];
+        //                [ViewUtils forwardFrom:self to:page];
     }else{
         
         message.text = @"Please complete all entries above.";
@@ -166,12 +164,17 @@
 -(void) submit{
     
     Feedback *feedbackObj = [[FeedbackData sharedFeedbackData] getCurrentFeedback];
-    feedbackObj.merchant = [Initializer merchantName];
+    //    UserProfile *user = [[MemoryData sharedMemoryData] currentCustomer];
+    //    NSLog(@"user: %@", user);
+    //    if (user) {
+    //        user.identifier = @"0";
+    //        feedbackObj.customer = user;
+    //    }
+    NSLog(@"feedbackObj: %@",feedbackObj);
     
-    NSLog(@"feedbackObj :%@",feedbackObj);
     FeedBackDataManager *abc = [[FeedBackDataManager alloc] init];
     [abc setupCreateReuestWithText:feedbackObj];
-
+    
     ThankYouPage *page = [[ThankYouPage alloc] initWithNibName:@"ThankYouPage" bundle:nil];
     [ViewUtils forwardFrom:self to:page];
 }
@@ -181,32 +184,21 @@
     
     int count=0;
     
-    NSLog(@"Answers %d", [answers count]);
-    
-    NSLog(@"map: %@", [[MemoryData map] allKeys]);
-    
     for (NSString *each in answers) {
         int x = [each intValue]%100;
-      
+        
         FeedBackQuestion *question = [[MemoryData map] objectForKey:[NSString stringWithFormat:@"%d", count]];
-        NSLog(@"question: %@", question);
-        NSLog(@"question list: %@ x: %d", question.list, x);
         
         question.answer = [question.list objectAtIndex:x];
-   
-        NSLog(@"question.answer %@",question.answer);
         
         [[FeedbackData sharedFeedbackData] addResponseText:question.answer questionName:question.identifier questionText:question.question andCategory:@"General"];
         count++;
     }
     
-    NSLog(@"Current FeedBack %@",[[FeedbackData sharedFeedbackData] getCurrentFeedback]);
-    
-    
-//    Review *review = [[Review alloc] init];
-//    review.type = @"reviewType";
-//    review.comment = textView.text;
-//    [[FeedbackData sharedFeedbackData] addReviewWithType:review.type andComment:review.comment];
+    Review *review = [[Review alloc] init];
+    review.type = @"Suggestion";
+    review.comment = textView.text;
+    [[FeedbackData sharedFeedbackData] addReviewWithType:review.type andComment:review.comment];
 }
 
 -(int) validate{
@@ -224,7 +216,7 @@
     NSString *suggestions = textView.text;
     
     answers = [NSMutableArray arrayWithArray:
-    [answers sortedArrayUsingComparator:^(id string1, id string2) {
+               [answers sortedArrayUsingComparator:^(id string1, id string2) {
         return [((NSString *)string1) compare:((NSString *)string2)
                                       options:NSNumericSearch];
     }]];

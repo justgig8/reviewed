@@ -11,10 +11,12 @@
 @implementation Review
 
 @synthesize comment;
+@synthesize type;
+
 @synthesize entity;
 @synthesize userId;
 @synthesize rating;
-@synthesize type;
+
 
 -(NSString *)description {
     return [NSString stringWithFormat:@"comment %@, entity %@ ,  userId %@,  rating %@ type %@",comment, entity,  userId, rating,type ];

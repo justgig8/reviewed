@@ -60,9 +60,7 @@
 {
     NSString *name = [NSString stringWithFormat:@"%@_%d",catText,cell.tag];
     
-    NSLog(@"Feedback New Reponse Created %@ Category Text %@",name,catText);
     Response *reponse = [[FeedbackData sharedFeedbackData] addResponseText:responseText questionName:name questionText:cell.lblTitle.text andCategory:catText];
-    NSLog(@"Feedback New Reponse Created %@",reponse);
 }
 
 
@@ -93,7 +91,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     // Return the number of rows in the section.
     int count = [self.tableDataDetails count];
-    NSLog(@"rowsssss: %d", count);
     return count;
 }
 
@@ -107,7 +104,6 @@
         cell.delegate = (id)self;
         cell.tag = indexPath.row;
         FeedbackCellDetails *x = [self.tableDataDetails objectAtIndex:indexPath.row];
-        NSLog(@"cell at row index %d: %@", indexPath.row, cell);
         [cell addDetailsInTableCell:cell restaurantDetails:x cellHeight:cellHeight];
     }
     return cell;

@@ -12,7 +12,7 @@
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *userId;
-@property (nonatomic, retain) NSString *id;
+@property (nonatomic, retain) NSString *identifier;
 @property (nonatomic, retain) NSString *phone;
 @property (nonatomic, retain) NSString *email;
 

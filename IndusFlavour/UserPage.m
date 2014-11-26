@@ -161,7 +161,7 @@
     if (code==0) {
         
         UserProfile *user = [[MemoryData sharedMemoryData] currentCustomer];
-        user.id = @"0";
+        user.identifier = @"0";
         user.name = name.text;
         user.phone = mobile.text;
         user.email = [NSString stringWithFormat:@"%@@%@", username.text, domain.text];

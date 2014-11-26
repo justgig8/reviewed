@@ -94,7 +94,7 @@ static NSString *table, *mobile;
 
 -(UserProfile *)initializeCurrentCustomer {
     UserProfile *customer = [[UserProfile alloc] init];
-    customer.id = @"0";
+    customer.identifier = @"0";
     return customer;
 }
 

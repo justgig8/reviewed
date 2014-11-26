@@ -117,11 +117,9 @@ buttonCheck;
 
 
 -(void)smilyIndexDidChanged:(NSString *)text {
-    
     if ([self.sliderDelegate respondsToSelector:@selector(sliderViewDidSlid:andIndex:)]) {
         [self.sliderDelegate sliderViewDidSlid:self andIndex:text];
     }
-    NSLog(@"%s Index %@",__FUNCTION__,text);
 }
 
 

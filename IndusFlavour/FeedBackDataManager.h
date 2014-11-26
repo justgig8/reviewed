@@ -15,6 +15,5 @@
 
 @property(nonatomic,retain)UserProfile *customer;
 @property(nonatomic,retain)NSString *merchant;
-@property(nonatomic,retain)NSString *category;
 
 @end

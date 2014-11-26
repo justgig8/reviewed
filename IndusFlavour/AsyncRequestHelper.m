@@ -21,26 +21,22 @@
     
     if (self) {
         self.delegate = callObject;
-        NSLog(@"self.delegate %@",self.delegate);
     }
     return self;
 }
 
-
-
 -(MKNetworkOperation *)getResourceFromURL:(NSString *)urlString queryStringParams:(NSDictionary *)params responseType:(id)responseType  uniqueResourceId:(NSString *)uri {
-
+    
     MKNetworkOperation *op = [self operationWithPath:urlString params:params];
     
     [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
-   
+        
         //DLog(@"Server Data found %@ ", completedOperation.responseString);
         
         if ([self.delegate respondsToSelector:@selector(asynRequestCompleted:withResponseData:responseType:responseCode:uniqueResourceId:)]) {
             [self.delegate asynRequestCompleted:self withResponseData:[completedOperation responseString] responseType:responseType responseCode:[completedOperation  HTTPStatusCode] uniqueResourceId:uri];
         }
     } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
-        
         if ([self.delegate respondsToSelector:@selector(asynRequestFailed:withError:uniqueResourceId:responseCode:)]) {
             [self.delegate asynRequestFailed:self withError:error uniqueResourceId:uri responseCode:[errorOp HTTPStatusCode]];
         }
@@ -50,33 +46,30 @@
     return op;
 }
 
-
 -(MKNetworkOperation *)createResourceFromURL:(NSString *)urlString responseType:(id)responseType contentText:(NSString *)contentText contentType:(NSString *)contentType uniqueResourceId:(NSString *)uri callBack:(id<AsyncRequestDelegate>)callObject {
     
     
     NSString *postData = contentText;
- 
+    
     if ([contentType isEqualToString:@"application/xml"]) {
-  
+        
         //Create XML -------
     }else {
- 
+        
         ///Check for other content type.
     }
-
+    
     MKNetworkOperation *op = [self operationWithPath:urlString params:nil httpMethod:@"POST"];
     [op setCustomPostDataEncodingHandler:^NSString *(NSDictionary *postDataDict) {
         return postData;
     } forType:contentType];
-  
-    [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
     
+    [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
+        
         if ([self.delegate respondsToSelector:@selector(asynRequestCompleted:withResponseData:responseType:responseCode:uniqueResourceId:)]) {
             [self.delegate asynRequestCompleted:self withResponseData:[completedOperation responseString] responseType:responseType responseCode:[completedOperation  HTTPStatusCode] uniqueResourceId:uri];
         }
-    
-        NSLog(@"Async Block  %@", [completedOperation responseString]);
- 
+        
     } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
         
         if ([self.delegate respondsToSelector:@selector(asynRequestFailed:withError:uniqueResourceId:responseCode:)]) {
@@ -115,8 +108,6 @@
         if ([self.delegate respondsToSelector:@selector(asynRequestCompleted:withResponseData:responseType:responseCode:uniqueResourceId:)]) {
             [self.delegate asynRequestCompleted:self withResponseData:[completedOperation responseString] responseType:responseType responseCode:[completedOperation  HTTPStatusCode] uniqueResourceId:uri];
         }
-        
-        NSLog(@"Async Block  %@", [completedOperation responseString]);
         
     } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
         

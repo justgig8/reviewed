@@ -56,9 +56,9 @@
 
 -(void) process: (Menu *)menu{
     
+    NSLog(@"processing menu");
     for (Section *sec in menu.list) {
         for (Categorie *cat in sec.list) {
-            NSLog(@"Sections:%@",sec.list);
             NSMutableArray *array = [[NSMutableArray alloc] init];
             for (Subcategory *subcat in cat.list) {
                 for (Item *item in subcat.list) {

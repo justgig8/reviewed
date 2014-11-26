@@ -582,7 +582,7 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data,
       DLog(@"Cannot create a URL with %@ and parameters %@ and method %@", aURLString, self.fieldsToBePosted, method);
       return nil;
     }else {
-         DLog(@"Finel Url %@",finalURL);
+         DLog(@"Final Url %@",finalURL);
     }
     
     self.request = [NSMutableURLRequest requestWithURL:finalURL

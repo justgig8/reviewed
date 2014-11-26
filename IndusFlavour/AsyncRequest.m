@@ -72,8 +72,6 @@
             [self.delegate asynRequestCompleted:self withResponseData:[completedOperation responseString] responseType:responseType responseCode:[completedOperation  HTTPStatusCode] uniqueResourceId:uri];
         }
     
-        NSLog(@"Async Block  %@", [completedOperation responseString]);
- 
     } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
         
         if ([self.delegate respondsToSelector:@selector(asynRequestFailed:withError:uniqueResourceId:responseCode:)]) {
@@ -112,8 +110,6 @@
         if ([self.delegate respondsToSelector:@selector(asynRequestCompleted:withResponseData:responseType:responseCode:uniqueResourceId:)]) {
             [self.delegate asynRequestCompleted:self withResponseData:[completedOperation responseString] responseType:responseType responseCode:[completedOperation  HTTPStatusCode] uniqueResourceId:uri];
         }
-        
-        NSLog(@"Async Block  %@", [completedOperation responseString]);
         
     } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
         

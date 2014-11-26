@@ -30,7 +30,7 @@ deliveryAddress;
 
 -(NSString*)description{
     
-    return [NSString stringWithFormat:@"Identifier : %@| Merchant :%@ | Order No :%@ | Items :%@| Table Name :%@| Serving Emp Code: %@| Serving Emp Name: %@| Date :%@",self.identifier,self.merchant,self.orderNumber,self.item,self.tableName,self.servingEmployeeCode,self.servingEmployeeName,self.date];
+    return [NSString stringWithFormat:@"Identifier : %@| Merchant :%@ | Order No :%@ | Items :%@| Table Name :%@| Serving Emp Code: %@| Serving Emp Name: %@| Date :%@ | customer: %@ | customerId: %@",self.identifier,self.merchant,self.orderNumber,self.item,self.tableName,self.servingEmployeeCode,self.servingEmployeeName,self.date, self.customer, self.customerId];
 }
 
 @end
