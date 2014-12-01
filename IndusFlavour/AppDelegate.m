@@ -10,7 +10,7 @@
 
 
 #import "Initializer.h"
-#import "TestFlight.h"
+
 #import "CoverPage.h"
 
 @interface AppDelegate(){
@@ -30,11 +30,12 @@
     // Override point for customization after application launch.
     
     
-#define TESTING 1
-#ifdef TESTING
-    [TestFlight setDeviceIdentifier:[[[UIDevice currentDevice] identifierForVendor] UUIDString]];
-#endif
-    [TestFlight takeOff:@"a88187a6-0cbb-439b-ad4d-82444c837c22"];
+//#define TESTING 1
+//#ifdef TESTING
+//    [TestFlight setDeviceIdentifier:[[[UIDevice currentDevice] identifierForVendor] UUIDString]];
+//#endif
+//    [TestFlight takeOff:@"a88187a6-0cbb-439b-ad4d-82444c837c22"];
+
     [Initializer setup];
     
     [MemoryData setup];

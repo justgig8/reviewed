@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 WL004. All rights reserved.
 //
 
-#define IS_DEFAULT_SETTINGS_MODE 1
+#define IS_DEFAULT_SETTINGS_MODE 0
 
 #define CONTENT_TYPE_XML    @"application/xml"
 #define CONTENT_TYPE_JSON   @"application/JSON"

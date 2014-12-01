@@ -22,7 +22,7 @@
 			<key>IsSecure</key>
 			<false/>
 			<key>DefaultValue</key>
-			<string>192.168.1.248:7080/Menued</string>
+			<string>192.168.1.5:8080/Menued</string>
 		</dict>
 		<dict>
 			<key>Type</key>

@@ -16,13 +16,9 @@
 #import "Resourcer.h"
 #import "SlidingView.h"
 #import "Feedback.h"
-@interface UserRatingPage ()
-
-
-
-@end
 
 @implementation UserRatingPage
+
 @synthesize tableView,tableDataDetails;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -50,7 +46,7 @@
         details.title = item.name;
         [tableDataDetails addObject:details];
     }
-    cellHeight = 100;
+    cellHeight = 130;
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     NSLog(@"user ratings page loaded");
@@ -58,7 +54,7 @@
 
 -(void)feedbackTableCell:(FeedbackTableCell *)cell addFeedBackCat:(NSString *)catText reponseText:(NSString *)responseText
 {
-    NSString *name = [NSString stringWithFormat:@"%@_%d",catText,cell.tag];
+    NSString *name = [NSString stringWithFormat:@"%@_%ld",catText,(long)cell.tag];
     
     Response *reponse = [[FeedbackData sharedFeedbackData] addResponseText:responseText questionName:name questionText:cell.lblTitle.text andCategory:catText];
 }

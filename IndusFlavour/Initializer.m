@@ -21,8 +21,8 @@ static NSString *apiKey;
 +(void) setup{
     
     if (IS_DEFAULT_SETTINGS_MODE) {
-//        serverHost = @"192.168.1.248:7080/Menued";
-        serverHost = @"qa.appprix.com:7080/Indus";
+        serverHost = @"10.0.0.248:7080/Indus";
+//        serverHost = @"qa.appprix.com:7080/Indus";
         merchantName = @"Indus Flavour";
         apiKey = @"987462984";
         

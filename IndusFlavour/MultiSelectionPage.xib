@@ -50,7 +50,7 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">multiBgPage_cover.png</string>
+							<string key="NSResourceName">bg.png</string>
 						</object>
 					</object>
 					<object class="IBUILabel" id="230094070">
@@ -74,15 +74,15 @@
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<int key="IBUITextAlignment">1</int>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="768862645">
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="133712146">
 							<string key="name">Helvetica-Bold</string>
 							<string key="family">Helvetica</string>
 							<int key="traits">2</int>
-							<double key="pointSize">25</double>
+							<double key="pointSize">24</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="823823667">
+						<object class="NSFont" key="IBUIFont" id="823786093">
 							<string key="NSName">Helvetica-Bold</string>
-							<double key="NSSize">25</double>
+							<double key="NSSize">24</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
@@ -106,15 +106,15 @@
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<int key="IBUITextAlignment">1</int>
-						<reference key="IBUIFontDescription" ref="768862645"/>
-						<reference key="IBUIFont" ref="823823667"/>
+						<reference key="IBUIFontDescription" ref="133712146"/>
+						<reference key="IBUIFont" ref="823786093"/>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 						<bool key="useAutomaticPreferredMaxLayoutWidth">YES</bool>
 					</object>
 					<object class="IBUILabel" id="431052345">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{314, 243}, {129, 28}}</string>
+						<string key="NSFrame">{{314, 243}, {129, 29}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="424184856"/>
@@ -124,13 +124,13 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<string key="IBUIText">Perhaps</string>
+						<string key="IBUIText">Not at all</string>
 						<reference key="IBUITextColor" ref="297758921"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<int key="IBUITextAlignment">1</int>
-						<reference key="IBUIFontDescription" ref="768862645"/>
-						<reference key="IBUIFont" ref="823823667"/>
+						<reference key="IBUIFontDescription" ref="133712146"/>
+						<reference key="IBUIFont" ref="823786093"/>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 						<bool key="useAutomaticPreferredMaxLayoutWidth">YES</bool>
 					</object>
@@ -454,7 +454,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<string key="IBUIText">How likely are you to refer Indus Flavour to friends/ associates?</string>
+						<string key="IBUIText">How do you rate the server?</string>
 						<reference key="IBUITextColor" ref="297758921"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
@@ -1119,8 +1119,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="bg.png">{768, 1024}</string>
 			<string key="input-suggestion.png">{406, 152}</string>
-			<string key="multiBgPage_cover.png">{768, 1024}</string>
 			<string key="question-checkbox.png">{80, 78}</string>
 			<string key="question-checkbox2.png">{80, 78}</string>
 			<string key="submit-hover.png">{148, 88}</string>
